@@ -1,0 +1,17 @@
+body{
+    display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+background: #222
+}
+
+.container{
+    background: white;
+    padding: 2em;
+    width: 100%;
+    max-width: 450px;
+    margin: 1px;
+    border-radius: 1em;
+}
