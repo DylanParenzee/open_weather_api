@@ -48,7 +48,7 @@ input.search-bar {
 
 
 
-button {
+button.searchButton {
     border: none;
     border-radius: 50%;
     height: 3em;
@@ -60,7 +60,16 @@ button {
    
 }
 
-    button:hover{
+    button.searchButton:hover{
         background-color: rgba(182, 165, 165, 0.714);
         transition: 0.5s;
+    }
+
+
+
+    #backgroundButton{
+        border-radius: 3px;
+        position: relative;
+        left: 200px;
+        background-color: aqua;
     }
