@@ -69,7 +69,8 @@ button.searchButton {
 
     #backgroundButton{
         border-radius: 3px;
-        position: relative;
-        left: 200px;
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
         background-color: aqua;
     }
