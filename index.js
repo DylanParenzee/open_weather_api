@@ -22,7 +22,7 @@ function displayData(city){
     console.log(data)
     let icon = data.weather[0].icon
     //city display, makes sure first letter is capitalised
-    document.querySelector('.city').innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)}`
+    document.querySelector('.city').innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`
      // temp display 
     document.querySelector('.temp h1').innerText = `${data.main.temp} C `
     //icon display
