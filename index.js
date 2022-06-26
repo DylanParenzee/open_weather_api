@@ -33,17 +33,39 @@ function displayData(city){
     document.querySelector('.humidity').innerHTML = `Humidity : ${data.main.humidity}`
     //windspeed display
     document.querySelector('.windspeed').innerHTML = `Wind speed : ${data.wind.speed} km/h`
-    
 
-    
     
     
     
 })
 .catch((err) => {
     console.log(`${err} :  unable to load data`)
+    document.querySelector('.city').innerText = `Please select a valid city`
+    document.querySelector('.icon').src = ``
+    document.querySelector('.temp h1').innerText = `- `
+    document.querySelector('.description').innerHTML = `-`
+    document.querySelector('.humidity').innerHTML = `-`
+    document.querySelector('.windspeed').innerHTML = `-`
+
 })
     
 }
 
-displayData()
+
+//logic for search bar submits via submit button only
+let searchButton = document.querySelector('.searchButton')
+    
+searchButton.addEventListener('click', () => {
+        let searchBar = document.querySelector('.search-bar')
+        displayData(searchBar.value)
+    })
+    
+
+    let searchBar = document.querySelector('.search-bar')
+
+    searchBar.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            displayData(searchBar.value)
+        }
+    });
+    
