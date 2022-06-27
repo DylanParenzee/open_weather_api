@@ -1,7 +1,8 @@
 
 
 
-
+let unit = 'metric'
+let lang = 'en'
 
 
 
@@ -9,8 +10,7 @@
 
 function displayData(city){
     const key = 'bd46a268c8e5e6bd7778516a6f3f569c'
-    let unit = 'metric'
-    let lang = 'en'
+    
    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${unit}&lang=${lang}`)
 .then((res) => {
     if(res.status !== 200){
@@ -19,7 +19,7 @@ function displayData(city){
     return res.json()
 })
 .then((data) => {
-    console.log(data)
+    
     let icon = data.weather[0].icon
     //city display, makes sure first letter is capitalised
     document.querySelector('.city').innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`
@@ -33,7 +33,7 @@ function displayData(city){
     document.querySelector('.humidity').innerHTML = `Humidity : ${data.main.humidity}`
     //windspeed display
     document.querySelector('.windspeed').innerHTML = `Wind speed : ${data.wind.speed} km/h`
-
+   
     
     
     
@@ -60,7 +60,7 @@ searchButton.addEventListener('click', () => {
         displayData(searchBar.value)
     })
     
-
+//logic for search bar, submits via enter keypress
     let searchBar = document.querySelector('.search-bar')
 
     searchBar.addEventListener('keypress', function (e) {
@@ -70,4 +70,22 @@ searchButton.addEventListener('click', () => {
     });
     
 
-    
+     // logic for language selection 
+
+     document.querySelector('.spanishButton').addEventListener('click', () =>{
+        lang = 'Es'
+        displayData(searchBar.value)
+        
+    })
+
+    document.querySelector('.frenchButton').addEventListener('click', () =>{
+        lang = 'Fr'
+        displayData(searchBar.value)
+        
+    })
+
+    document.querySelector('.englishButton').addEventListener('click', () =>{
+        lang = 'En'
+        displayData(searchBar.value)
+        
+    })
