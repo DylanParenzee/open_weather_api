@@ -45,7 +45,7 @@ function displayData(city){
     document.querySelector('.temp h1').innerText = `- `
     document.querySelector('.description').innerHTML = `-`
     document.querySelector('.humidity').innerHTML = `-`
-    document.querySelector('.windspeed').innerHTML = `-`
+    document.querySelector('.windspeed').innerHTML = `Double check spelling`
 
 })
     
