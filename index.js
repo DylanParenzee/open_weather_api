@@ -2,8 +2,10 @@
 
 
 let unit = 'metric'
-let lang = 'en'
-
+let lang = 'En'
+let humidity = document.querySelector('.humidity')
+let windSpeed = document.querySelector('.windspeed')
+let cityDescription = document.querySelector('.city')
 
 
 
@@ -21,18 +23,31 @@ function displayData(city){
 .then((data) => {
     
     let icon = data.weather[0].icon
-    //city display, makes sure first letter is capitalised
-    document.querySelector('.city').innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`
+    //city display, makes sure first letter is capitalised -- handles 3 available languages 
+    if(lang === 'En'){cityDescription.innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
+    else if(lang ===  'Es'){cityDescription.innerText = `el Clima en ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
+    else {cityDescription.innerText = `la météo dans ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
+    
+
      // temp display 
     document.querySelector('.temp h1').innerText = `${data.main.temp} C `
+
     //icon display
     document.querySelector('.icon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`
-    // weather discrition display
+
+    // weather discription display
     document.querySelector('.description').innerHTML = data.weather[0].description
-    // humidity display
-    document.querySelector('.humidity').innerHTML = `Humidity : ${data.main.humidity}`
-    //windspeed display
-    document.querySelector('.windspeed').innerHTML = `Wind speed : ${data.wind.speed} km/h`
+
+    // humidity display -- handles 3 available languages 
+    if(lang === 'En'){humidity.innerHTML = `Humidity : ${data.main.humidity}%`}
+    else if(lang === 'Es') {humidity.innerHTML = `humedad: ${data.main.humidity}%`}
+    else{humidity.innerHTML = `humidité: ${data.main.humidity}%`}
+    
+    //windspeed display -- handles 3 available languages
+    if(lang === 'En'){windSpeed.innerHTML = `Wind speed : ${data.wind.speed} km/h`}
+    else if(lang === 'Es'){windSpeed.innerHTML = `velocidad del viento : ${data.wind.speed} km/h`}
+    else{windSpeed.innerHTML = `vitesse du vent: ${data.wind.speed} km/h`}
+    
    
     
     
@@ -48,6 +63,8 @@ function displayData(city){
     document.querySelector('.windspeed').innerHTML = `Double check spelling`
 
 })
+
+
     
 }
 
@@ -72,20 +89,26 @@ searchButton.addEventListener('click', () => {
 
      // logic for language selection 
 
+     //spanish
+
      document.querySelector('.spanishButton').addEventListener('click', () =>{
         lang = 'Es'
         displayData(searchBar.value)
         
     })
+     //french
 
     document.querySelector('.frenchButton').addEventListener('click', () =>{
         lang = 'Fr'
         displayData(searchBar.value)
         
     })
-
+       // english
     document.querySelector('.englishButton').addEventListener('click', () =>{
         lang = 'En'
         displayData(searchBar.value)
         
     })
+
+
+    
