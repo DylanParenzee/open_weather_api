@@ -124,3 +124,25 @@ button.searchButton {
         background-color: rgba(182, 165, 165, 0.714);
         transition: 0.3s;
     }
+
+
+    .measurment{
+        position: absolute;
+        bottom: 4%;
+        right: 10%;
+        width: 45px;
+        height: 45px;
+    }
+
+
+    .measurment button{
+        
+        
+        border: none;
+        margin: 1.6;
+        background: rgba(104, 98, 98, 0.608);
+        color: white;
+        cursor: pointer;
+        height: 20px;
+        
+    }
