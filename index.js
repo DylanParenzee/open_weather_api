@@ -30,7 +30,12 @@ function displayData(city){
     
 
      // temp display 
-    document.querySelector('.temp h1').innerText = `${data.main.temp} C `
+     if(unit === 'metric'){
+        document.querySelector('.temp h1').innerText = `${data.main.temp} C `
+     } else{
+        document.querySelector('.temp h1').innerText = `${data.main.temp} F `
+     }
+    
 
     //icon display
     document.querySelector('.icon').src = `https://openweathermap.org/img/wn/${icon}@2x.png`
@@ -111,4 +116,19 @@ searchButton.addEventListener('click', () => {
     })
 
 
-    
+    //Logic for unit of measurment selection
+
+
+
+     // event listner for imperial button
+    document.querySelector('#imperialBtn').addEventListener('click', ()=>{
+        unit= 'imperial'
+        displayData(searchBar.value)
+    })
+     
+
+    // event listner for metric button
+    document.querySelector('#metricBtn').addEventListener('click', ()=>{
+        unit= 'metric'
+        displayData(searchBar.value)
+    })

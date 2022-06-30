@@ -126,23 +126,46 @@ button.searchButton {
     }
 
 
-    .measurment{
-        position: absolute;
-        bottom: 4%;
-        right: 10%;
-        width: 45px;
-        height: 45px;
-    }
+   .measurmentContainer{
+       position: absolute;
+       width: 300px;
+       height: 50px;
+       
+       right: 2%;
+       bottom: 4%;
+       
+
+   }
+
+   .measurmentContainer ul{
+       display:flex ;
+       justify-content: space-evenly;
+       align-items: center;
+       margin: 0.9em;
+       list-style: none;
+
+       
+
+   }
 
 
-    .measurment button{
-        
-        
-        border: none;
-        margin: 1.6;
-        background: rgba(104, 98, 98, 0.608);
-        color: white;
-        cursor: pointer;
-        height: 20px;
-        
-    }
+   
+
+
+   .measurmentContainer ul li button{
+    background: rgba(104, 98, 98, 0.608);
+    color: white;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 3px;
+    width: 5em;
+    border: none;
+    height: 2.7em;
+
+   }
+
+   .measurmentContainer ul li button:hover{
+    background-color: rgba(182, 165, 165, 0.714);
+    transition: 0.3s;
+
+   }
