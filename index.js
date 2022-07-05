@@ -11,7 +11,7 @@ let cityDescription = document.querySelector('.city')
 
 
 function displayData(city){
-    const key = 'bd46a268c8e5e6bd7778516a6f3f569c'
+    
     
    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${unit}&lang=${lang}`)
 .then((res) => {
@@ -23,13 +23,14 @@ function displayData(city){
 .then((data) => {
     
     let icon = data.weather[0].icon
+    console.log(data)
     //city display, makes sure first letter is capitalised -- handles 3 available languages 
     if(lang === 'En'){cityDescription.innerText = `Weather in ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
     else if(lang ===  'Es'){cityDescription.innerText = `el Clima en ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
     else {cityDescription.innerText = `la météo dans ${city[0].toUpperCase() + city.substring(1)} (${data.sys.country})`}
     
 
-     // temp display 
+     // temp display and logic for display of temp depending on which unit of measurment is selected
      if(unit === 'metric'){
         document.querySelector('.temp h1').innerText = `${data.main.temp} C `
      } else{
@@ -58,6 +59,8 @@ function displayData(city){
     
     
 })
+
+// error handling --- if .catch is returned all data will show this
 .catch((err) => {
     console.log(`${err} :  unable to load data`)
     document.querySelector('.city').innerText = `Please select a valid city`
